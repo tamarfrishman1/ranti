@@ -1,0 +1,33 @@
+﻿@model List<RentingGown.Models.Gowns>
+@{
+    ViewBag.Title = "DeleteGown";
+}
+
+<h2>DeleteGown</h2>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!-- Bootstrap -->
+<link href="~/Content/line-awesome.min.css" rel="stylesheet" />
+<!-- Icons -->
+<link href="~/Content/style.css" rel="stylesheet" />
+<!-- Style -->
+<link href="~/Content/responsive.css" rel="stylesheet" />
+<!-- Responsive -->
+<link href="~/Content/colors/colors.css" rel="stylesheet" />
+<!-- color -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+<script>
+    function afterLoad() {
+        let msg = document.getElementById("msg").name;
+        if (msg != "")
+            swal({
+                icon: 'warning',
+                title: 'שים לב!!!',
+                text: `יש לנו מידע כי השימלה מושכרת בתאריכים: ${document.getElementById("msg").name}.`
+            })
+    }
+</script>
+<body onload="afterLoad()">
+    <input type="hidden" id="msg" name="@ViewBag.msg" />
+</body>
